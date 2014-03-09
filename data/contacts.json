@@ -1,0 +1,40 @@
+{
+	"addressBook" : [
+			{
+                "name": "hamy",
+                "email": "hamypham@me.com"
+            },
+            {
+                "name": "daenerys",
+                "email": "daenerys@HBO.com"
+            },
+            {
+                "name": "jon",
+                "email": "JSnow@HBO.com"
+            },
+            {
+                "name": "khal",
+                "email": "khal@HBO.com"
+            },
+            {
+                "name": "tyrion",
+                "email": "tyrion@HBO.com"
+            },
+            {
+                "name": "joffrey",
+                "email": "joffrey@HBO.com"
+            },
+            {
+                "name": "eddard",
+                "email": "eddard@HBO.com"
+            },
+            {
+                "name": "sansa",
+                "email": "sansa@HBO.com"
+            },
+            {
+                "name": "arya",
+                "email": "arya@HBO.com"
+            }
+        ]
+    }
