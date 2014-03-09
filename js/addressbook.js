@@ -46,7 +46,6 @@
     /* define the DOM elements and common variables you'll need */
     var searchForm = document.getElementById("search-form"),
         searchField = document.getElementById("q"),
-        getAllButton = document.getElementById("get-all"),
         count = contacts.addressBook.length,
         target = document.getElementById("output");
     
@@ -121,9 +120,6 @@
     
     // remove active section on blur of the form field
     searchField.addEventListener("blur", addr.removeActiveSection, false);
-    
-    // get all contacts when you click the button
-    getAllButton.addEventListener("click", addr.getAllContacts, false);
     
     // add hover class on mouse over of the form field
     searchForm.addEventListener("mouseover", addr.addHoverClass, false);
