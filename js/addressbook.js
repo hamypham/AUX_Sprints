@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* wrap everything in an anonymous function to contain the variables */
 (function(){
     
@@ -47,6 +48,70 @@
     var searchForm = document.getElementById("search-form"),
         searchField = document.getElementById("q"),
         count = contacts.addressBook.length,
+=======
+/* standard Ajax xhr function */
+
+function getHTTPObject() {
+
+    var xhr;
+
+    if (window.XMLHttpRequest) { // check for support
+        
+        // if it's supported, use it beacuse it's better
+        xhr = new XMLHttpRequest();
+    
+    } else if (window.ActiveXObject) { // check for the IE 6 Ajax
+    
+        // save it to the xhr variable
+        xhr = new ActiveXObject("Msxml2.XMLHTTP");
+    
+    }
+    
+    // spit out the correct one so we can use it
+    return xhr;
+}
+
+/* define the Ajax call */
+
+function ajaxCall(dataUrl, outputElement, callback) {
+    
+    /* use function to get the correct Ajax object based on support */
+    var request = getHTTPObject();
+    
+    outputElement.innerHTML = "Loading...";
+    
+    request.onreadystatechange = function() {
+        
+        // check to see if the Ajax call went through
+        if ( request.readyState === 4 && request.status === 200 ) {
+            
+            // save the ajax response to a variable
+            var contacts = JSON.parse(request.responseText);
+            
+            // make sure the callback is indeed a function before executing it
+            if(typeof callback === "function"){
+            
+                callback(contacts);
+            
+            } // end check
+    
+        } // end ajax status check
+    
+    } // end onreadystatechange
+    
+    request.open("GET", dataUrl, true);
+    request.send(null);
+
+}
+
+/* wrap everything in an anonymous function to contain the variables */
+
+(function(){
+    
+    /* define the DOM elements and common variables */
+    var searchForm = document.getElementById("search-form"),
+        searchField = document.getElementById("q"),
+>>>>>>> breakJSON-Ajax
         target = document.getElementById("output");
     
     /* define address book methods */
@@ -54,6 +119,7 @@
         
         search : function(event){
             
+<<<<<<< HEAD
             // save the input value, contacts length and i to variables
             var searchValue = searchField.value,
                 i;
@@ -86,18 +152,69 @@
         },
         
         setActiveSection : function(){
+=======
+            // set the output element
+            var output = document.getElementById("output");
+            
+             ajaxCall('data/contacts.json', output, function (data) {
+            
+                // save the input value, contacts length and i to variables
+                var searchValue = searchField.value,
+                    addrBook = data.addressBook,
+                    count = addrBook.length,
+                    i;
+                
+                // stop the default behavior
+                event.preventDefault();
+                
+                // clear the target area just incase there's something in it.
+                target.innerHTML = "";
+                
+                // check the count
+                if(count > 0 && searchValue !== ""){
+                
+                    // loop through the contacts
+                    for(i = 0; i < count; i = i + 1) {
+    
+                        // look through the name value to see if it contains the searchterm string
+                        var obj = addrBook[i],
+                            isItFound = obj.name.indexOf(searchValue);
+    
+                        // anything other than -1 means we found a match
+                        if(isItFound !== -1) {
+                            target.innerHTML += '<p><a href="mailto:' + obj.email + '">'+ obj.name +'</a><p>';
+                        } // end if
+    
+                    } // end for loop
+    
+                } // end count check
+            
+            }); // end ajax call
+
+        },
+        
+        setActiveSection : function() {
+>>>>>>> breakJSON-Ajax
         
             // add a class of "active" the wrapping div
             this.parentNode.setAttribute("class", "active");
         
         },
+<<<<<<< HEAD
         removeActiveSection : function(){
+=======
+        removeActiveSection : function() {
+>>>>>>> breakJSON-Ajax
         
             // remove the class from the wrapping div
             this.parentNode.removeAttribute("class");
         
         },
+<<<<<<< HEAD
         addHoverClass : function(){
+=======
+        addHoverClass : function() {
+>>>>>>> breakJSON-Ajax
         
             // remove the class from the wrapping div
             searchForm.setAttribute("class", "hovering");
@@ -129,5 +246,11 @@
     
     // activate search on form submit
     searchForm.addEventListener("submit", addr.search, false);
+<<<<<<< HEAD
     
 })(); // end anonymous function
+=======
+
+    
+})(); // end anonymous function
+>>>>>>> breakJSON-Ajax
