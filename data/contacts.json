@@ -1,39 +1,39 @@
 {
 	"addressBook" : [
 			{
-                "name": "hamy",
+                "name": "Hamy Pham",
                 "email": "hamypham@me.com"
             },
             {
-                "name": "daenerys",
+                "name": "Daenerys Targaryen",
                 "email": "daenerys@HBO.com"
             },
             {
-                "name": "jon",
+                "name": "Jon Snow",
                 "email": "JSnow@HBO.com"
             },
             {
-                "name": "khal",
+                "name": "Khal Drogo",
                 "email": "khal@HBO.com"
             },
             {
-                "name": "tyrion",
+                "name": "Tyrion Lannister",
                 "email": "tyrion@HBO.com"
             },
             {
-                "name": "joffrey",
+                "name": "Joffrey Baratheon",
                 "email": "joffrey@HBO.com"
             },
             {
-                "name": "eddard",
+                "name": "Eddard Stark",
                 "email": "eddard@HBO.com"
             },
             {
-                "name": "sansa",
+                "name": "Sansa Stark",
                 "email": "sansa@HBO.com"
             },
             {
-                "name": "arya",
+                "name": "Arya Stark",
                 "email": "arya@HBO.com"
             }
         ]
